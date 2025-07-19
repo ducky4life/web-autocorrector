@@ -27,4 +27,4 @@ def prettify_autocorrector(query:str, number:int=1):
         for i in range(1, len(word_list)+1):
             output.append(f"{i}. {word_list[i-1]}")
         msg += f'{key}: {" ".join(output)}\n'
-    return msg
+    return msg, len(ac_results)

@@ -16,14 +16,16 @@ def main_route():
 
         if query:
             try:
-                message = prettify_autocorrector(query, number)
+                ac_results = prettify_autocorrector(query, number)
+                message = ac_results[0]
+                dict_length = ac_results[1]
 
             except Exception as e:
                 message = f"Error: {e}"
         else:
             message = "Please enter a query."
             
-    return render_template("index.html", message=message)
+    return render_template("index.html", message=message, dict_length=dict_length)
 
 def run():
     serve(app, host="0.0.0.0", port=8080)
