@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <body>
+  <head>
+    <title>Ducky</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  
+  <div class="navBar">
+    <nav>
+      <a href="https://ducky.is-a.dev/" class="navText">Ducky</a>
+    </nav>
+  </div>
+  
+    <section class="wrapper">
+    <br />
+    
+      <form method="post">
+          <input class="textbox" type="text" name="textbox" placeholder="enter text to be autocorrected (separated by commas)..." />
+          <br>
+          <p>number of results:</p>
+          <input class="button button3" type="submit" name="action" value="1" />
+          <input class="button button3" type="submit" name="action" value="2" />
+          <input class="button button3" type="submit" name="action" value="3" />
+      </form>
+      <p>{{ message }}</p>
+      {% if filepath %}
+          <a href="/downloads/{{ filepath }}" download><p>Download</p></a>
+      {% endif %}
+
+    </body>
+  </section>
+</html>
