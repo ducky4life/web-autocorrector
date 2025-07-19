@@ -22,7 +22,7 @@ def prettify_autocorrector(query:str, number:int=1):
     msg = ""
     for key in ac_results:
         output = []
-        word_list = ac_results[key.lower()]
+        word_list = ac_results[key]
 
         for i in range(1, len(word_list)+1):
             output.append(f"{i}. {word_list[i-1]}")
