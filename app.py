@@ -4,6 +4,7 @@ from waitress import serve
 from autocorrector import prettify_autocorrector
 
 app = Flask('')
+port=8080
 
 @app.route('/', methods=['GET', 'POST'])
 def main_route():
@@ -26,12 +27,12 @@ def main_route():
     return render_template("index.html", message=message)
 
 def run():
-    serve(app, host="0.0.0.0", port=8080)
+    serve(app, host="0.0.0.0", port=port)
 
 def keep_alive():
     server = Thread(target=run)
     server.start()
-    print("server is running on port 8080")
+    print(f"server is running on port {port}")
 
 @app.route('/downloads/<path:filename>')
 def download_file(filename):
