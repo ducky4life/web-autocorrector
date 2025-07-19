@@ -16,7 +16,7 @@ def main_route():
 
         if query:
             try:
-                message = prettify_autocorrector(query, number)
+                message = prettify_autocorrector(query.lower(), number)
 
             except Exception as e:
                 message = f"Error: {e}"
