@@ -31,3 +31,66 @@ make sure you have [python](https://www.python.org/downloads/) installed.
    python app.py
    ```
 5. go to http://localhost:8080/
+
+## Usage (Docker)
+
+make sure you have [docker](https://www.docker.com) installed.
+
+[building from source](https://github.com/ducky4life/web-autocorrector#building-the-images-from-source-recommended) is recommended since it is how i mainly test the packages and you get the most up to date dependencies.
+
+amd64 packages are not tested since i only have an arm64 rasp pi with docker.
+
+### Using pre-built images
+
+1. get the correct package for your archetecture
+
+   [amd64](https://github.com/ducky4life/web-autocorrector/pkgs/container/web-autocorrector%2Fweb-fqhll-amd64):
+   ```
+   docker pull ghcr.io/ducky4life/web-autocorrector/web-fqhll-amd64:latest
+   ```
+   [arm64](https://github.com/ducky4life/web-autocorrector/pkgs/container/web-autocorrector%2Fweb-fqhll-arm64):
+   ```
+   docker pull ghcr.io/ducky4life/web-autocorrector/web-fqhll-arm64:latest
+   ```
+2. run the docker container
+
+   amd64:
+   ```
+   docker run -p 8080:8080 --name web-fqhll ghcr.io/ducky4life/web-autocorrector/web-fqhll-amd64:latest
+   ```
+   arm64:
+   ```
+   docker run -p 8080:8080 --name web-fqhll ghcr.io/ducky4life/web-autocorrector/web-fqhll-arm64:latest
+   ```
+3. go to http://localhost:8080/
+
+### Building the images from source (recommended)
+
+1. clone the repository
+   ```
+   git clone https://github.com/ducky4life/web-autocorrector.git
+   ```
+2. move into directory
+   ```
+   cd web-autocorrector
+   ```
+3. build the docker image for your archetecture
+
+   amd64:
+   ```
+   docker build -t web-fqhll:latest -f amd64.Dockerfile .
+   ```
+   arm64:
+   ```
+   docker build -t web-fqhll:latest -f arm64.Dockerfile .
+   ```
+4. run the docker container
+   ```
+   docker run -p 8080:8080 --name web-fqhll web-fqhll:latest
+   ```
+5. go to http://localhost:8080/
+
+
+## to do list
+
+- [ ] import from/export to file
