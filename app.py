@@ -34,8 +34,4 @@ def keep_alive():
     server.start()
     print(f"server is running on port {port}")
 
-@app.route('/downloads/<path:filename>')
-def download_file(filename):
-    return send_from_directory('downloads', filename, as_attachment=True)
-
 keep_alive()
