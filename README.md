@@ -96,3 +96,4 @@ amd64 packages are not tested since i only have an arm64 rasp pi with docker.
 - [ ] import from/export to file
 - [ ] custom dictionary support
 - [ ] queryable api
+- [ ] separate by spaces instead of commas
