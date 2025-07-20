@@ -19,8 +19,14 @@
     
       <form method="post">
           <input class="textbox" type="text" name="textbox" placeholder="enter text to be autocorrected (separated by commas)..." />
+          <details>
+            <summary class="button button3">custom dictionary...</summary>
+            <br>
+            <input class="textbox" type="text" name="dictionary" placeholder="enter path (dictionary/example.txt) or link to dictionary txt file" />
+          </details>
           <br>
           <p>number of results:</p>
+          <br>
           <input class="button button3" type="submit" name="action" value="1" />
           <input class="button button3" type="submit" name="action" value="2" />
           <input class="button button3" type="submit" name="action" value="3" />
