@@ -12,7 +12,7 @@ https://github.com/shun4midx/FQ-HyperLogLog-Autocorrect
 
 ## features
 
-- custom dictionary file from web url or local file (can only use web url on local app)
+- custom dictionary file from uploads or web url or local file path
 
 ## Usage (Python)
 

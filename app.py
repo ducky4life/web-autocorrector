@@ -20,25 +20,22 @@ def main_route():
         number = int(action)
         
         dictionary_input = request.form.get('dictionary', '')
+        dictionary_file = request.files.get("dictionary_file_upload")
 
         if dictionary_input.startswith("http"): # url from web
             
-            if "vercel" not in request.url:
-                url_text = requests.get(dictionary_input, params={"downloadformat": "txt"}).text
-                filename = dictionary_input.split("/")[-1]
+            url_content = requests.get(dictionary_input, params={"downloadformat": "txt"}).text
+            dictionary = url_content.split("\n")
 
-                with open(f"dictionary/{filename}", "w") as file:
-                    file.write(url_text)
-                dictionary = f"dictionary/{filename}"
+        elif dictionary_file: # uploaded file
 
-            else:
-                message = "web urls can only be used locally"
-                dictionary = "test_files/20k_shun4midx.txt"
+            dictionary_file_content = dictionary_file.readlines()
+            dictionary = [item.decode('utf-8').replace("\n", "") for item in dictionary_file_content]
                 
-        else: # local file path
+        elif dictionary_input.startswith("dictionary"): # local file path
             dictionary = dictionary_input
 
-        if not dictionary:
+        else:
             dictionary = "test_files/20k_shun4midx.txt"
 
         if query:
@@ -47,7 +44,6 @@ def main_route():
             if output_as_file == "on":
 
                 output_file_name = f"{int(time.time())}.txt"
-                output_file = f"downloads/{output_file_name}"
                 content = prettify_autocorrector(query, number, dictionary)
                 response = Response(content, mimetype='text/plain')
                 response.headers["Content-Disposition"] = f"attachment; filename={output_file_name}"
