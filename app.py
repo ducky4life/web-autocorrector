@@ -20,14 +20,18 @@ def main_route():
         dictionary_input = request.form.get('dictionary', '')
 
         if dictionary_input.startswith("http"): # url from web
+            
+            if "vercel" not in request.url:
+                url_text = requests.get(dictionary_input, params={"downloadformat": "txt"}).text
+                filename = dictionary_input.split("/")[-1]
 
-            url_text = requests.get(dictionary_input, params={"downloadformat": "txt"}).text
-            filename = dictionary_input.split("/")[-1]
+                with open(f"dictionary/{filename}", "w") as file:
+                    file.write(url_text)
+                dictionary = f"dictionary/{filename}"
 
-            with open(f"dictionary/{filename}", "w") as file:
-                file.write(url_text)
-            dictionary = f"dictionary/{filename}"
-
+            else:
+                message = "web urls can only be used locally"
+                
         else: # local file path
             dictionary = dictionary_input
 
