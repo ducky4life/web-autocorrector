@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, send_from_directory
+from flask import Flask, Response, request, render_template, send_from_directory
 from threading import Thread
 from waitress import serve
 import requests
@@ -73,6 +73,8 @@ def keep_alive():
 
 @app.route('/downloads/<path:filename>')
 def download_file(filename):
-    return send_from_directory('downloads', filename, as_attachment=True)
+    response = Response(filename, mimetype='text/plain')
+    response.headers["Content-Disposition"] = f"attachment; filename={filename}"
+    return response
 
 keep_alive()
