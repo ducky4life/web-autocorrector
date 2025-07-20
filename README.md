@@ -13,6 +13,7 @@ https://github.com/shun4midx/FQ-HyperLogLog-Autocorrect
 ## features
 
 - custom dictionary file from uploads or web url or local file path
+- export to file as json object/python dictionary
 
 ## Usage (Python)
 

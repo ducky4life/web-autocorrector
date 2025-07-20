@@ -1,4 +1,4 @@
-from flask import Flask, Response, request, render_template, send_from_directory
+from flask import Flask, Response, request, render_template, jsonify
 from threading import Thread
 from waitress import serve
 import requests
@@ -44,8 +44,8 @@ def main_route():
             if output_as_file == "on":
 
                 output_file_name = f"{int(time.time())}.txt"
-                content = prettify_autocorrector(query, number, dictionary)
-                response = Response(content, mimetype='text/plain')
+                content = autocorrector(query, number, dictionary)
+                response = jsonify(content)
                 response.headers["Content-Disposition"] = f"attachment; filename={output_file_name}"
                 return response
 
@@ -69,11 +69,5 @@ def keep_alive():
     server = Thread(target=run)
     server.start()
     print(f"server is running on port {port}")
-
-@app.route('/downloads/<path:filename>')
-def download_file(filename):
-    response = Response(filename, mimetype='text/plain')
-    response.headers["Content-Disposition"] = f"attachment; filename={filename}"
-    return response
 
 keep_alive()
