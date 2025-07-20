@@ -10,6 +10,10 @@ uses the extremely cool, [accurate, and low-memory-usage](https://github.com/shu
 
 https://github.com/shun4midx/FQ-HyperLogLog-Autocorrect
 
+## features
+
+- custom dictionary file from web url or local file (can only use web url on local app)
+
 ## Usage (Python)
 
 make sure you have [python](https://www.python.org/downloads/) installed.
