@@ -3,7 +3,7 @@ from threading import Thread
 from waitress import serve
 import requests
 import time
-from autocorrector import prettify_autocorrector
+from autocorrector import autocorrector, prettify_autocorrector
 
 app = Flask('')
 port = 8080
@@ -45,9 +45,13 @@ def main_route():
             output_as_file = request.form.get('output_file_toggle') # 'on' or None
 
             if output_as_file == "on":
+                
                 output_file_name = f"{int(time.time())}.txt"
                 output_file = f"downloads/{output_file_name}"
-                prettify_autocorrector(query, number, dictionary, output_file)
+                content = autocorrector(query, number, dictionary, output_file)
+                response = Response(content, mimetype='text/plain')
+                response.headers["Content-Disposition"] = f"attachment; filename={output_file_name}"
+                return response
 
             else:
 
