@@ -4,7 +4,7 @@ def autocorrector(query:str, number:int=1, dictionary:str="test_files/20k_shun4m
 
     ac = Autocorrector(dictionary)
 
-    input_list = query.split(",")
+    input_list = query.split(" ")
     if number not in [1,2,3]:
         return "please choose a number between 1 to 3 inclusive"
     
