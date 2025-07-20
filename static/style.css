@@ -96,6 +96,13 @@ nav {
   }
 }
 
+.bigtextarea {
+  color: #000;
+  width: min(100vw, 700px);
+  height: 20vh;
+  margin-bottom: 10px;
+}
+
 .switch {
   position: relative;
   display: inline-block;
@@ -210,6 +217,12 @@ input:checked + .slider:before {
   }
 }
 
+.dictionary-box {
+  transform: scale(0.9);
+  background-color: var(--main-color);
+  padding: 50px;
+  padding-top: 10px;
+}
 /* #endregion */
 
 /* #region button */

@@ -19,22 +19,25 @@ def main_route():
         input_text = request.form.get('input', '')
         input_file = request.files.get("input_file_upload")
 
+        action = request.form.get('action')
+        number = int(action)
+
+        dictionary_input = request.form.get('dictionary', '')
+        dictionary_file = request.files.get("dictionary_file_upload")
+
+        output_as_file = request.form.get('output_file_toggle') # 'on' or None
+        separator_input = request.form.get('separator')
+        separator = separator_input if separator_input else "\n"
+
+
+
         if input_file:
             input_file_content = input_file.readlines()
-            query = [item.decode('utf-8').replace("\n", "") for item in input_file_content][0]
+            query = separator.join([item.decode('utf-8').replace("\n", "").replace("\r", "") for item in input_file_content])
         
         else:
             query = input_text
 
-
-
-        action = request.form.get('action')
-        number = int(action)
-        
-
-
-        dictionary_input = request.form.get('dictionary', '')
-        dictionary_file = request.files.get("dictionary_file_upload")
 
 
         if dictionary_input.startswith("http"): # url from web
@@ -43,7 +46,7 @@ def main_route():
 
         elif dictionary_file: # uploaded file
             dictionary_file_content = dictionary_file.readlines()
-            dictionary = [item.decode('utf-8').replace("\n", "") for item in dictionary_file_content]
+            dictionary = [item.decode('utf-8').replace("\n", "").replace("\r", "") for item in dictionary_file_content]
                 
         elif dictionary_input.startswith("dictionary"): # local file path
             dictionary = dictionary_input
@@ -54,19 +57,18 @@ def main_route():
 
 
         if query:
-            output_as_file = request.form.get('output_file_toggle') # 'on' or None
 
             if output_as_file == "on":
 
                 output_file_name = f"fqhll_output_{int(time.time())}.txt"
-                content = autocorrector(query, number, dictionary)
+                content = autocorrector(query, number, dictionary, separator)
                 response = Response(content, mimetype='text/plain')
                 response.headers["Content-Disposition"] = f"attachment; filename={output_file_name}"
                 return response
 
             else:
                 try:
-                    message = prettify_autocorrector(query, number, dictionary)
+                    message = prettify_autocorrector(query, number, dictionary, separator)
 
                 except Exception as e:
                     message = f"Error: {e}"
