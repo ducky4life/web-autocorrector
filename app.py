@@ -31,6 +31,7 @@ def main_route():
 
             else:
                 message = "web urls can only be used locally"
+                dictionary = "test_files/20k_shun4midx.txt"
                 
         else: # local file path
             dictionary = dictionary_input
