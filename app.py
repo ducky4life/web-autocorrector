@@ -48,7 +48,7 @@ def main_route():
 
                 output_file_name = f"{int(time.time())}.txt"
                 output_file = f"downloads/{output_file_name}"
-                content = prettify_autocorrector(query, number, dictionary, output_file)
+                content = prettify_autocorrector(query, number, dictionary)
                 response = Response(content, mimetype='text/plain')
                 response.headers["Content-Disposition"] = f"attachment; filename={output_file_name}"
                 return response
