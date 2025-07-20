@@ -55,9 +55,8 @@ def main_route():
 
             else:
 
-                output_file = "None"
                 try:
-                    message = prettify_autocorrector(query, number, dictionary, output_file)
+                    message = prettify_autocorrector(query, number, dictionary)
 
                 except Exception as e:
                     message = f"Error: {e}"
