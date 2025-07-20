@@ -1,6 +1,6 @@
 from dyslexicloglog import Autocorrector
 
-def autocorrector(query:str, number:int=1, dictionary:str="test_files/20k_shun4midx.txt"):
+def autocorrector(query:str, number:int=1, dictionary:str="test_files/20k_shun4midx.txt", output_file:str="None"):
 
     ac = Autocorrector(dictionary)
 
@@ -8,7 +8,7 @@ def autocorrector(query:str, number:int=1, dictionary:str="test_files/20k_shun4m
     if number not in [1,2,3]:
         return "please choose a number between 1 to 3 inclusive"
     
-    ac_results = ac.top3(input_list)
+    ac_results = ac.top3(input_list, output_file)
 
     if number == 3:
         return ac_results
@@ -18,8 +18,8 @@ def autocorrector(query:str, number:int=1, dictionary:str="test_files/20k_shun4m
                 ac_results[key].pop(-1)
         return ac_results
 
-def prettify_autocorrector(query:str, number:int=1, dictionary:str="test_files/20k_shun4midx.txt"):
-    ac_results = autocorrector(query, number, dictionary)
+def prettify_autocorrector(query:str, number:int=1, dictionary:str="test_files/20k_shun4midx.txt", output_file:str="None"):
+    ac_results = autocorrector(query, number, dictionary, output_file)
     msg = ""
 
     for key in ac_results:

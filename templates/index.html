@@ -18,19 +18,33 @@
     <br />
     
       <form method="post">
+
           <input class="textbox" type="text" name="textbox" placeholder="enter text to be autocorrected (separated by spaces)..." />
+          
           <details>
             <summary class="button button3">custom dictionary...</summary>
             <input class="textbox" type="text" name="dictionary" placeholder="enter path (dictionary/example.txt) or link to dictionary txt file (local app only)" />
           </details>
+
+          <p>export as file</p>
+          <br>
+          <label class="switch">
+            <input type="checkbox" name="output_file_toggle">
+            <span class="slider round"></span>
+          </label>
+
           <p>number of results:</p>
           <br>
           <input class="button button3" type="submit" name="action" value="1" />
           <input class="button button3" type="submit" name="action" value="2" />
           <input class="button button3" type="submit" name="action" value="3" />
       </form>
+
       <p>{{ message }}</p>
 
+      {% if filepath %}
+          <a href="/downloads/{{ filepath }}" download><p>Download</p></a>
+      {% endif %}
     </body>
   </section>
 </html>
