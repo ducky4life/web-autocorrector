@@ -48,7 +48,7 @@ def main_route():
             dictionary_file_content = dictionary_file.readlines()
             dictionary = [item.decode('utf-8').replace("\n", "").replace("\r", "") for item in dictionary_file_content]
                 
-        elif dictionary_input.startswith("dictionary"): # local file path
+        elif dictionary_input: # local file path
             dictionary = dictionary_input
 
         else:

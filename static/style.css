@@ -53,13 +53,13 @@ body {
   color: white;
 }
 
-p{
+p, ::placeholder {
   font-size: min(1.5vw, 20px);
   padding-top: 20px;
 }
 
 @media all and (orientation: portrait) {
-  p {
+  p, ::placeholder {
     font-size: 3vw;
   }
 }
