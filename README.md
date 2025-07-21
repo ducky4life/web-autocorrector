@@ -18,6 +18,10 @@ example api query:
 
 `curl -d 'query=wwo htis alogirthm so coolo' -d 'number=3' -d 'dictionary=https://raw.githubusercontent.com/shun4midx/FQ-HyperLogLog-Autocorrect/refs/heads/main/fq_hll_py/src/fq_hll/test_files/20k_shun4midx.txt' -d 'separator= ' https://web-autocorrector.vercel.app/api`
 
+(only query is a required argument. the rest is optional and can be excluded.)
+
+returns:
+
 > {"alogirthm":["algorithm","algorithms","triathlon"],"coolo":["cool","color","colon"],"htis":["tits","this","hits"],"so":["so","sos","soo"],"wwo":["wow","two","www"]}
 
 ## features
