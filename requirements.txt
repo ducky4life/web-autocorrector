@@ -2,3 +2,4 @@ DyslexicLogLog
 waitress
 flask
 requests
+flask-restful

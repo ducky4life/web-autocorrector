@@ -8,6 +8,10 @@ from autocorrector import autocorrector, prettify_autocorrector
 app = Flask('')
 port = 8080
 
+def request_url_to_list(url):
+    url_content = requests.get(url, params={"downloadformat": "txt"}).text
+    return url_content.split("\n")
+
 @app.route('/', methods=['GET', 'POST'])
 def main_route():
     message = ""
@@ -32,17 +36,21 @@ def main_route():
 
 
         if input_file:
-            input_file_content = input_file.readlines()
-            query = separator.join([item.decode('utf-8').replace("\n", "").replace("\r", "") for item in input_file_content])
+            input_list = input_file.readlines()
+            query = [item.decode('utf-8').replace("\n", "").replace("\r", "") for item in input_list]
         
+        elif input_text.startswith("http"):
+            input_list = request_url_to_list(input_text)
+            query = [item.replace("\n", "").replace("\r", "") for item in input_list]
+
         else:
-            query = input_text
+            input_list = input_text.replace("\r", "").split(separator)
+            query = [item.replace("\n", "").replace("\r", "") for item in input_list]
 
 
 
         if dictionary_input.startswith("http"): # url from web
-            url_content = requests.get(dictionary_input, params={"downloadformat": "txt"}).text
-            dictionary = url_content.split("\n")
+            dictionary = request_url_to_list(dictionary_input)
 
         elif dictionary_file: # uploaded file
             dictionary_file_content = dictionary_file.readlines()
@@ -61,14 +69,15 @@ def main_route():
             if output_as_file == "on":
 
                 output_file_name = f"fqhll_output_{int(time.time())}.txt"
-                content = autocorrector(query, number, dictionary, separator)
-                response = Response(content, mimetype='text/plain')
+                content = autocorrector(query, number, dictionary)
+                response = Response(str(content), mimetype='text/plain')
+                print(content, response)
                 response.headers["Content-Disposition"] = f"attachment; filename={output_file_name}"
                 return response
 
             else:
                 try:
-                    message = prettify_autocorrector(query, number, dictionary, separator)
+                    message = prettify_autocorrector(query, number, dictionary)
 
                 except Exception as e:
                     message = f"Error: {e}"
