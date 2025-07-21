@@ -1,6 +1,6 @@
 # web-autocorrector
 
-web-autocorrector is a flask app based on the [fq-hll autocorrection algorithm](https://github.com/shun4midx/FQ-HyperLogLog-Autocorrect), one-click deploy to vercel:
+web-autocorrector is a flask app based on the [fq-hll autocorrection algorithm](https://github.com/shun4midx/FQ-HyperLogLog-Autocorrect) with queryable api, one-click deploy to vercel:
 
 [![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/ducky4life/web-autocorrector)
 
@@ -9,6 +9,10 @@ web-autocorrector is a flask app based on the [fq-hll autocorrection algorithm](
 uses the extremely cool, [accurate, and low-memory-usage](https://github.com/shun4midx/FQ-HyperLogLog-Autocorrect/tree/main/fq_hll_py#results) autocorrect algorithm library which you can read more about [here](https://github.com/shun4midx/FQ-HyperLogLog-Autocorrect)!!! star the repository and `pip install fq-hll` or `pip install DyslexicLogLog` :D
 
 https://github.com/shun4midx/FQ-HyperLogLog-Autocorrect
+
+## api usage
+
+by default, the api is started from app.py. you can host the api as standalone app by adding `keep_alive()` at the end of api.py and running api.py
 
 ## features
 

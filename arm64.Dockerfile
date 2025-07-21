@@ -14,7 +14,7 @@ COPY static static
 
 COPY templates templates
 
-COPY app.py autocorrector.py /
+COPY app.py autocorrector.py api.py /
 
 EXPOSE 8080
 
