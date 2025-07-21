@@ -20,7 +20,7 @@ example api query:
 
 only query is a required argument. the rest is optional and can be excluded.
 
-note that dictionaries from web url or uploads would be treated as if it's from most to least frequently used. this is also true for the web ui. host the app locally and provide local file path to custom dictionary to avoid this
+note that custom dictionaries would be treated as if it's from most to least frequently used.
 
 returns:
 
