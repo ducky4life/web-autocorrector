@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, Response, jsonify
+from flask import Flask, request, render_template, Response, jsonify, flash
 from threading import Thread
 from waitress import serve
 import requests
@@ -80,7 +80,7 @@ def main_route():
 
             else:
                 try:
-                    message = prettify_autocorrector(query, number, dictionary)
+                    message = flash(prettify_autocorrector(query, number, dictionary))
 
                 except Exception as e:
                     message = f"Error: {e}"
