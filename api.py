@@ -6,7 +6,7 @@ import requests
 from autocorrector import autocorrector, prettify_autocorrector
 
 api_app = Flask('')
-port = 5000
+port = 8080
 api = Api(api_app)
 parser = reqparse.RequestParser()
 parser.add_argument('query', type=str, help='query to autocorrect', location='form')
@@ -36,7 +36,7 @@ class AutocorrectorApi(Resource):
         ac_results = autocorrector(query, number, dictionary)
         return jsonify(ac_results)
 
-api.add_resource(AutocorrectorApi, '/')
+api.add_resource(AutocorrectorApi, '/api')
 
 def run():
     serve(api_app, host="0.0.0.0", port=port)
@@ -44,4 +44,4 @@ def run():
 def keep_alive():
     server = Thread(target=run)
     server.start()
-    print(f"server is running on port {port}, use 'curl -d 'query=[your query]' http://127.0.0.1:{port}'")
+    print(f"server is running on port {port}, use 'curl -d 'query=[your query]' http://127.0.0.1:{port}/api'")
