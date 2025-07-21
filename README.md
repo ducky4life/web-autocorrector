@@ -135,3 +135,6 @@ amd64 packages are not tested since i only have an arm64 rasp pi with docker.
 - [x] custom dictionary support
 - [x] queryable api
 - [x] separate by both spaces and newlines instead of commas
+- [ ] make prettify_autocorrector renders in br tags/new lines
+- [ ] toggle button for raw output in web
+- [ ] make json output prettier
