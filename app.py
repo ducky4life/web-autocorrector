@@ -80,6 +80,7 @@ def main_route():
 
             else:
                 try:
+                    flash("test")
                     flash(prettify_autocorrector(query, number, dictionary))
                     message = "flashed"
 
