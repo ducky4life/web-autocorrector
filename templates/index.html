@@ -48,8 +48,8 @@
           <input class="button button3" type="submit" name="action" value="3" />
       </form>
 
-{% for flashed_message in get_flashed_messages() %}
-      <p>{{ flashed_message }}</p>
+{% for ac_word in message %}
+      <p>{{  ac_word  }}</p>
 {% endfor %}
 
     </body>
