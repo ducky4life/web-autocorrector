@@ -4,6 +4,7 @@ from waitress import serve
 import requests
 import time
 from autocorrector import autocorrector, prettify_autocorrector
+import api
 
 app = Flask('')
 port = 8080
@@ -96,3 +97,4 @@ def keep_alive():
     print(f"server is running on port {port}")
 
 keep_alive()
+api.keep_alive()
