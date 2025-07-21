@@ -18,9 +18,23 @@ only query is a required argument. the rest is optional and can be excluded.
 
 note that dictionaries from web url or uploads would be treated as if it's from most to least frequently used. this is also true for the web ui. host the app locally and provide local file path to custom dictionary to avoid this
 
-example api query:
+### arguments
 
-`curl -d 'query=wwo htis alogirthm so coolo' -d 'number=3' -d 'dictionary=https://raw.githubusercontent.com/shun4midx/FQ-HyperLogLog-Autocorrect/refs/heads/main/fq_hll_py/src/fq_hll/test_files/20k_shun4midx.txt' -d 'separator= ' https://web-autocorrector.vercel.app/api`
+`query` (required) - input text or raw txt file link to be processed
+
+`number` - the number of possible autocorrected words to output for each word. defaults to 1.
+
+`dictionary` - a raw txt file link with one word on each line to be used as the custom dictionary for the algorithm
+
+`separator` - a string that separates each word in the input. defaults to spaces. you should use `separator=\n` for most txt files.
+
+`prettify` - whether to prettify the json output into human readable form or leave it as one line. defaults to False.
+
+### api examples
+
+example query with all arguments:
+
+`curl -d 'query=wwo/htis/alogirthm/so/coolo' -d 'number=3' -d 'dictionary=https://raw.githubusercontent.com/shun4midx/FQ-HyperLogLog-Autocorrect/refs/heads/main/fq_hll_py/src/fq_hll/test_files/20k_shun4midx.txt' -d 'separator=/' -d 'prettify=False' https://web-autocorrector.vercel.app/api`
 
 returns:
 
