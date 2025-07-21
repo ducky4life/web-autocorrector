@@ -10,7 +10,6 @@ from api import AutocorrectorApi
 app = Flask('')
 port = 8080
 api_app = Api(app)
-app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 app.json.compact = False
 
 def request_url_to_list(url):
