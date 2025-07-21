@@ -16,7 +16,7 @@ by default, the api is started from app.py. you can host the api as standalone a
 
 example api query:
 
-`curl -d 'query=wwo htis alogirthm so coolo' -d 'number=3' -d 'dictionary=https://raw.githubusercontent.com/shun4midx/FQ-HyperLogLog-Autocorrect/refs/heads/main/fq_hll_py/src/fq_hll/test_files/20k_shun4midx.txt' -d 'separator= ' http://web-autocorrector.vercel.app/api`
+`curl -d 'query=wwo htis alogirthm so coolo' -d 'number=3' -d 'dictionary=https://raw.githubusercontent.com/shun4midx/FQ-HyperLogLog-Autocorrect/refs/heads/main/fq_hll_py/src/fq_hll/test_files/20k_shun4midx.txt' -d 'separator= ' https://web-autocorrector.vercel.app/api`
 
 > {"alogirthm":["algorithm","algorithms","triathlon"],"coolo":["cool","color","colon"],"htis":["tits","this","hits"],"so":["so","sos","soo"],"wwo":["wow","two","www"]}
 
