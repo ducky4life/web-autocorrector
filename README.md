@@ -12,8 +12,10 @@ https://github.com/shun4midx/FQ-HyperLogLog-Autocorrect
 
 ## features
 
+- queryable api using curl
 - custom dictionary file from uploads or web url or local file path
 - export to file as json object/python dictionary
+- import input file from uploads or web url or input textbox
 
 ## Usage (Python)
 
@@ -99,6 +101,7 @@ amd64 packages are not tested since i only have an arm64 rasp pi with docker.
 ## to do list
 
 - [x] import from/export to file
+- [x] import from url
 - [x] custom dictionary support
-- [ ] queryable api
+- [x] queryable api
 - [x] separate by both spaces and newlines instead of commas
