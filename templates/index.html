@@ -48,11 +48,10 @@
           <input class="button button3" type="submit" name="action" value="3" />
       </form>
 
+{% for message in get_flashed_messages() %}
       <p>{{ message }}</p>
+{% endfor %}
 
-      {% if filepath %}
-          <a href="/downloads/{{ filepath }}" download><p>Download</p></a>
-      {% endif %}
     </body>
   </section>
 </html>
