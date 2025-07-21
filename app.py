@@ -3,11 +3,14 @@ from threading import Thread
 from waitress import serve
 import requests
 import time
+from flask_restful import Resource, Api, reqparse
 from autocorrector import autocorrector, prettify_autocorrector
+from api import AutocorrectorApi
 import api
 
 app = Flask('')
 port = 8080
+api_app = Api(app)
 
 def request_url_to_list(url):
     url_content = requests.get(url, params={"downloadformat": "txt"}).text
@@ -88,6 +91,8 @@ def main_route():
             
     return render_template("index.html", message=message, filepath=output_file_name)
 
+api_app.add_resource(AutocorrectorApi, '/api')
+
 def run():
     serve(app, host="0.0.0.0", port=port)
 
@@ -97,4 +102,3 @@ def keep_alive():
     print(f"server is running on port {port}")
 
 keep_alive()
-api.keep_alive()
