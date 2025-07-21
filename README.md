@@ -134,3 +134,4 @@ amd64 packages are not tested since i only have an arm64 rasp pi with docker.
 - [x] make prettify_autocorrector renders in br tags/new lines
 - [ ] toggle button for raw output in web
 - [x] make json output prettier
+- [ ] add toggle pretty json output to api
