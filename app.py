@@ -3,10 +3,9 @@ from threading import Thread
 from waitress import serve
 import requests
 import time
-from flask_restful import Resource, Api, reqparse
+from flask_restful import Api
 from autocorrector import autocorrector, prettify_autocorrector
 from api import AutocorrectorApi
-import api
 
 app = Flask('')
 port = 8080
