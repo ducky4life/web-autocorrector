@@ -20,6 +20,8 @@ example api query:
 
 only query is a required argument. the rest is optional and can be excluded.
 
+note that dictionaries from web url or uploads would be treated as if it's from most to least frequently used. this is also true for the web ui. host the app locally and provide local file path to custom dictionary to avoid this
+
 returns:
 
 > {"alogirthm":["algorithm","algorithms","triathlon"],"coolo":["cool","color","colon"],"htis":["tits","this","hits"],"so":["so","sos","soo"],"wwo":["wow","two","www"]}
