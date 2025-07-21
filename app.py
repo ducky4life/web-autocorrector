@@ -98,6 +98,6 @@ def run():
 def keep_alive():
     server = Thread(target=run)
     server.start()
-    print(f"server is running on port {port}")
+    print(f"server is running on port {port}, api route: http://127.0.0.1:{port}/api")
 
 keep_alive()
