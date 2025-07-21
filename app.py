@@ -81,7 +81,7 @@ def main_route():
             else:
                 try:
                     flash(prettify_autocorrector(query, number, dictionary))
-message = "flashed"
+                    message = "flashed"
 
                 except Exception as e:
                     message = f"Error: {e}"
