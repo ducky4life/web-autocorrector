@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, Response
+from flask import Flask, request, render_template, Response, jsonify
 from threading import Thread
 from waitress import serve
 import requests
@@ -77,7 +77,7 @@ def main_route():
                 response = Response(str(content), mimetype='text/plain')
                 print(content, response)
                 response.headers["Content-Disposition"] = f"attachment; filename={output_file_name}"
-                return response
+                return jsonify(response)
 
             else:
                 try:
