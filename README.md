@@ -12,11 +12,11 @@ https://github.com/shun4midx/FQ-HyperLogLog-Autocorrect
 
 ## api usage
 
-by default, the api is started from app.py. you can host the api as standalone app by adding `keep_alive()` at the end of api.py and running api.py
+by default, the api is started from app.py. you can host the api as standalone app by adding the stuff in app.py before and after `main_route()` to api.py
 
 example api query:
 
-`curl -d 'query=wwo htis alogirthm so coolo' -d 'number=3' -d 'dictionary=https://raw.githubusercontent.com/shun4midx/FQ-HyperLogLog-Autocorrect/refs/heads/main/fq_hll_py/src/fq_hll/test_files/20k_shun4midx.txt' -d 'separator= ' http://127.0.0.1:8080/api`
+`curl -d 'query=wwo htis alogirthm so coolo' -d 'number=3' -d 'dictionary=https://raw.githubusercontent.com/shun4midx/FQ-HyperLogLog-Autocorrect/refs/heads/main/fq_hll_py/src/fq_hll/test_files/20k_shun4midx.txt' -d 'separator= ' http://web-autocorrector.vercel.app/api`
 
 > {"alogirthm":["algorithm","algorithms","triathlon"],"coolo":["cool","color","colon"],"htis":["tits","this","hits"],"so":["so","sos","soo"],"wwo":["wow","two","www"]}
 
