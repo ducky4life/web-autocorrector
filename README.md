@@ -16,7 +16,9 @@ by default, the api is started from app.py. you can host the api as standalone a
 
 example api query:
 
-`curl -d 'query=wwo htis alogirthm so coolo' -d 'number=3' -d 'dictionary=https://raw.githubusercontent.com/shun4midx/FQ-HyperLogLog-Autocorrect/refs/heads/main/fq_hll_py/src/fq_hll/test_files/20k_shun4midx.txt' -d 'separator= ' https://web-autocorrector.vercel.app/api`
+```sh
+curl -d 'query=wwo htis alogirthm so coolo' -d 'number=3' -d 'dictionary=https://raw.githubusercontent.com/shun4midx/FQ-HyperLogLog-Autocorrect/refs/heads/main/fq_hll_py/src/fq_hll/test_files/20k_shun4midx.txt' -d 'separator= ' https://web-autocorrector.vercel.app/api
+```
 
 only query is a required argument. the rest is optional and can be excluded.
 
@@ -30,7 +32,9 @@ returns:
 
 example query with file input:
 
-`curl -d 'query=https://raw.githubusercontent.com/ducky4life/web-autocorrector/refs/heads/main/requirements.txt' -d 'separator=\n' https://web-autocorrector.vercel.app/api`
+```sh
+curl -d 'query=https://raw.githubusercontent.com/ducky4life/web-autocorrector/refs/heads/main/requirements.txt' -d 'separator=\n' https://web-autocorrector.vercel.app/api
+```
 
 returns:
 
