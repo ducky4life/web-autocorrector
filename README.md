@@ -1,6 +1,6 @@
 # web-autocorrector
 
-web-autocorrector is a flask app based on the [fq-hll autocorrection algorithm](https://github.com/shun4midx/FQ-HyperLogLog-Autocorrect) with queryable api, one-click deploy to vercel:
+web-autocorrector is a flask app based on the [fq-hll autocorrection algorithm](https://github.com/shun4midx/FQ-HyperLogLog-Autocorrect) with [queryable api](https://github.com/ducky4life/web-autocorrector?tab=readme-ov-file#api-usage), one-click deploy to vercel:
 
 [![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/ducky4life/web-autocorrector)
 
