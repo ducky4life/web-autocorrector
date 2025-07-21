@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, Response
+from flask import Flask, request, render_template, Response, jsonify, flash
 from threading import Thread
 from waitress import serve
 import requests
@@ -10,6 +10,7 @@ from api import AutocorrectorApi
 app = Flask('')
 port = 8080
 api_app = Api(app)
+app.json.compact = False
 
 def request_url_to_list(url):
     url_content = requests.get(url, params={"downloadformat": "txt"}).text
@@ -73,8 +74,7 @@ def main_route():
 
                 output_file_name = f"fqhll_output_{int(time.time())}.txt"
                 content = autocorrector(query, number, dictionary)
-                response = Response(str(content), mimetype='text/plain')
-                print(content, response)
+                response = jsonify(content)
                 response.headers["Content-Disposition"] = f"attachment; filename={output_file_name}"
                 return response
 

@@ -48,11 +48,10 @@
           <input class="button button3" type="submit" name="action" value="3" />
       </form>
 
-      <p>{{ message }}</p>
+{% for ac_word in message %}
+      <p>{{  ac_word  }}</p>
+{% endfor %}
 
-      {% if filepath %}
-          <a href="/downloads/{{ filepath }}" download><p>Download</p></a>
-      {% endif %}
     </body>
   </section>
 </html>
