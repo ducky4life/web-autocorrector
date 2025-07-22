@@ -108,6 +108,17 @@ nav {
   margin-bottom: 10px;
 }
 
+.codebadges img {
+  width: max-content;
+}
+
+@media all and (orientation: portrait) {
+  .codebadges img {
+    width: auto;
+    height: 3vh;
+  }
+}
+
 .switch {
   position: relative;
   display: inline-block;
