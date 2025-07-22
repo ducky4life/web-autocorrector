@@ -53,6 +53,11 @@ body {
   color: white;
 }
 
+h2 {
+  font-size: minmax(36px, 1fr);
+  text-decoration: underline var(--tertiary-color);
+}
+
 p, ::placeholder {
   font-size: min(1.5vw, 20px);
   padding-top: 20px;
