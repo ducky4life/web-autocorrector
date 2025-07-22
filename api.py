@@ -10,7 +10,7 @@ parser.add_argument('query', type=str, help='query to autocorrect', location='fo
 parser.add_argument('number', type=int, help='number of autocorrect suggestions to output', location='form')
 parser.add_argument('dictionary', type=str, help='dictionary from web url or path to file on server', location='form')
 parser.add_argument('separator', type=str, help='separator for words. defaults to spaces', location='form')
-parser.add_argument('prettify', type=bool, help='whether to make the json output indented', location='form')
+parser.add_argument('prettify', type=str, help='whether to make the json output indented', location='form')
 
 def request_url_to_list(url):
     url_content = requests.get(url, params={"downloadformat": "txt"}).text
@@ -30,8 +30,10 @@ class AutocorrectorApi(Resource):
         elif args['query']:
             query = query.split(separator)
 
-        if prettify == True:
+        if prettify.lower() == "true":
             current_app.json.compact = False
+        else:
+            current_app.json.compact = True
 
         print(query)
 
