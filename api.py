@@ -23,7 +23,7 @@ class AutocorrectorApi(Resource):
         number = args['number'] if args['number'] else 1
         dictionary = request_url_to_list(args['dictionary']) if args['dictionary'] else "test_files/20k_shun4midx.txt"
         separator = args['separator'] if args['separator'] else " "
-        prettify = args['prettify'] if args['prettify'] else False
+        prettify = args['prettify'] if args['prettify'] else "False"
 
         if args['query'].startswith("http"):
             query = request_url_to_list(args['query'])
