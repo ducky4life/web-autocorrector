@@ -19,6 +19,7 @@ def request_url_to_list(url):
 @app.route('/', methods=['GET', 'POST'])
 def main_route():
     message = ""
+    error = ""
     output_file_name = ""
 
     if request.method == 'POST':
@@ -68,7 +69,9 @@ def main_route():
 
 
 
-        if query:
+        if query != ['']:
+
+            print(query)
 
             if output_as_file == "on":
 
@@ -83,12 +86,12 @@ def main_route():
                     message = prettify_autocorrector(query, number, dictionary)
 
                 except Exception as e:
-                    message = f"Error: {e}"
+                    error = f"Error: {e}"
 
         else:
-            message = "Please enter a query."
+            error = "Please enter a query."
             
-    return render_template("index.html", message=message, filepath=output_file_name)
+    return render_template("index.html", message=message, error=error, filepath=output_file_name)
 
 api_app.add_resource(AutocorrectorApi, '/api')
 

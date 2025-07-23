@@ -64,6 +64,9 @@
 {% for ac_word in message %}
       <p>{{  ac_word  }}</p>
 {% endfor %}
+{% if error %}
+      <p>{{  error  }}</p>
+{% endif %}
 
     </body>
   </section>
