@@ -12,6 +12,8 @@ https://github.com/shun4midx/FQ-HyperLogLog-Autocorrect
 
 ## api usage
 
+api endpoint: `https://web-autocorrector.vercel.app/api`
+
 by default, the api is started from app.py. you can host the api as standalone app by adding the stuff in app.py before and after `main_route()` to api.py
 
 only query is a required argument. the rest is optional and can be excluded.
