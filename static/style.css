@@ -55,8 +55,7 @@ body {
 
 h2 {
   font-size: minmax(36px, 1fr);
-  text-decoration-color: var(--tertiary-color);
-  color: white;
+  text-decoration: underline var(--tertiary-color);
 }
 
 p, ::placeholder {
