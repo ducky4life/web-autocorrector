@@ -61,12 +61,12 @@
           <input class="button button3" type="submit" name="action" value="3" />
       </form>
 
-{% for ac_word in message %}
-      <p>{{  ac_word  }}</p>
-{% endfor %}
-{% if error %}
-      <p>{{  error  }}</p>
-{% endif %}
+      {% for ac_word in message %}
+            <p>{{  ac_word  }}</p>
+      {% endfor %}
+      {% if error %}
+            <p>{{  error  }}</p>
+      {% endif %}
 
     </body>
   </section>
