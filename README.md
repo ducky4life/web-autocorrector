@@ -71,7 +71,7 @@ use the redirection operator `>>`
 example:
 
 ```sh
-curl -d 'query=thsi is omazing&prettify=True'  https://web-autocorrector.vercel.app/api >> output.json
+curl -d 'query=thsi is omazing&prettify=True' https://web-autocorrector.vercel.app/api >> output.json
 ```
 
 ```json
