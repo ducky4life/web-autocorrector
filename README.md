@@ -16,7 +16,7 @@ api endpoint: `https://web-autocorrector.vercel.app/api`
 
 by default, the api is started from app.py. you can host the api as standalone app by adding the stuff in app.py before and after `main_route()` to api.py
 
-only query is a required argument. the rest is optional and can be excluded.
+only query is a required argument. the rest is optional and can be excluded. arguments can also be combined as shown [here](https://github.com/ducky4life/web-autocorrector?tab=readme-ov-file#example-query-with-file-input).
 
 note that custom dictionaries would be treated as if it's from most to least frequently used.
 
@@ -34,6 +34,12 @@ note that custom dictionaries would be treated as if it's from most to least fre
 
 ### api examples
 
+you can use this command to show a help message:
+
+```sh
+curl -d 'help' https://web-autocorrector.vercel.app/api
+```
+
 #### example query with all arguments:
 
 ```sh
@@ -49,7 +55,7 @@ returns:
 #### example query with file input:
 
 ```sh
-curl -d 'query=https://raw.githubusercontent.com/ducky4life/web-autocorrector/refs/heads/main/requirements.txt' -d 'separator=\n' https://web-autocorrector.vercel.app/api
+curl -d 'query=https://raw.githubusercontent.com/ducky4life/web-autocorrector/refs/heads/main/requirements.txt&separator=\n' https://web-autocorrector.vercel.app/api
 ```
 
 returns:
