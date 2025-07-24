@@ -18,8 +18,10 @@ def autocorrector(query:list, number:int=1, dictionary="test_files/20k_shun4midx
                 ac_results[key].pop(-1)
         return ac_results
 
-def prettify_autocorrector(query:str, number:int=1, dictionary="test_files/20k_shun4midx.txt"):
+def prettify_autocorrector(query:str, number:int=1, dictionary="test_files/20k_shun4midx.txt", alphabetize=None):
     ac_results = autocorrector(query, number, dictionary)
+    if alphabetize != None:
+        ac_results = dict(sorted(ac_results.items()))
     msg = []
 
     for key in ac_results:

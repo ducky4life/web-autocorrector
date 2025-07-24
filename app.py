@@ -35,6 +35,7 @@ def main_route():
         dictionary_file = request.files.get("dictionary_file_upload")
 
         output_as_file = request.form.get('output_file_toggle') # 'on' or None
+        alphabetize_output = request.form.get('alphabetize_toggle')
         separator_input = request.form.get('separator')
         separator = separator_input if separator_input else "\n"
 
@@ -83,7 +84,7 @@ def main_route():
 
             else:
                 try:
-                    message = prettify_autocorrector(query, number, dictionary)
+                    message = prettify_autocorrector(query, number, dictionary, alphabetize_output)
 
                 except Exception as e:
                     error = f"Error: {e}"
