@@ -40,6 +40,8 @@ you can use this command to show a help message:
 curl -d 'help' https://web-autocorrector.vercel.app/api
 ```
 
+or just `curl https://web-autocorrector.vercel.app/api`
+
 #### example query with all arguments:
 
 ```sh

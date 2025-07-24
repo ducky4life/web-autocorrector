@@ -43,7 +43,7 @@ class AutocorrectorApi(Resource):
         separator = args['separator'] if args['separator'] else " "
         prettify = args['prettify'] if args['prettify'] else "False"
         help_needed = args['help']
-        
+
         if help_needed == "":
             response = Response(help_message)
             return(response)
@@ -63,3 +63,8 @@ class AutocorrectorApi(Resource):
 
         ac_results = autocorrector(query, number, dictionary)
         return jsonify(ac_results)
+    
+    def get(self):
+        response = Response(help_message)
+        return(response)
+
