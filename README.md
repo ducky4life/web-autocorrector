@@ -30,7 +30,9 @@ note that custom dictionaries would be treated as if it's from most to least fre
 
 `separator` - a string that separates each word in the input. defaults to spaces. you should use `separator=\n` for most txt files.
 
-`prettify` - whether to prettify the json output into human readable form or leave it as one line. defaults to False.
+`prettify` - whether to prettify the json output into human readable form (or leave it as one line). defaults to False.
+
+`alphabetize` - whether to make the json output alphabetized (or leave it as the inputted order). defaults to False.
 
 ## api examples
 
@@ -45,19 +47,19 @@ or just `curl https://web-autocorrector.vercel.app/api`
 ### example query with all arguments:
 
 ```sh
-curl -d 'query=wwo,htis,alogirthm,so,coolo' -d 'number=3' -d 'dictionary=https://raw.githubusercontent.com/shun4midx/FQ-HyperLogLog-Autocorrect/refs/heads/main/fq_hll_py/src/fq_hll/test_files/20k_shun4midx.txt' -d 'separator=,' -d 'prettify=False' https://web-autocorrector.vercel.app/api
+curl -d 'query=wwo,htis,alogirthm,so,coolo' -d 'number=3' -d -d 'separator=,' -d 'prettify=False' -d 'alphabetize=False' 'dictionary=https://raw.githubusercontent.com/shun4midx/FQ-HyperLogLog-Autocorrect/refs/heads/main/fq_hll_py/src/fq_hll/test_files/20k_shun4midx.txt' https://web-autocorrector.vercel.app/api
 ```
 
 returns:
 
-> {"alogirthm":["algorithm","algorithms","triathlon"],"coolo":["cool","color","colon"],"htis":["tits","this","hits"],"so":["so","sos","soo"],"wwo":["wow","two","www"]}
+> {"wwo":["wow","two","www"],"htis":["tits","this","hits"],"alogirthm":["algorithm","algorithms","triathlon"],"so":["so","sos","soo"],"coolo":["cool","color","colon"]}
 
 `query` also supports text file links like with the dictionary in the example
 
 ### example query with file input:
 
 ```sh
-curl -d 'query=https://raw.githubusercontent.com/ducky4life/web-autocorrector/refs/heads/main/requirements.txt' -d 'separator=\n' https://web-autocorrector.vercel.app/api
+curl -d 'separator=\n' -d 'alphabetize=True' -d 'query=https://raw.githubusercontent.com/ducky4life/web-autocorrector/refs/heads/main/requirements.txt' https://web-autocorrector.vercel.app/api
 ```
 
 returns:
@@ -76,14 +78,14 @@ curl -d 'query=thsi is omazing&prettify=True' https://web-autocorrector.vercel.a
 
 ```json
 {
+  "thsi": [
+    "the"
+  ],
   "is": [
     "is"
   ],
   "omazing": [
     "amazing"
-  ],
-  "thsi": [
-    "this"
   ]
 }
 ```

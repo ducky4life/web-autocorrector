@@ -11,6 +11,7 @@ parser.add_argument('number', type=int, choices=(1,2,3), help='number must be be
 parser.add_argument('dictionary', type=str, location='form')
 parser.add_argument('separator', type=str, location='form')
 parser.add_argument('prettify', type=str, location='form')
+parser.add_argument('alphabetize', type=str, location='form')
 parser.add_argument('help', type=str, location='form')
 
 help_message = """Usage: curl -d '[options]=[value]' https://web-autocorrector.vercel.app/api
@@ -23,7 +24,9 @@ Options:
 
     'separator' - a string that separates each word in the input. defaults to spaces. you should use 'separator=\n' for most txt files.
 
-    'prettify' - whether to prettify the json output into human readable form or leave it as one line. defaults to False.
+    'prettify' - whether to prettify the json output into human readable form (or leave it as one line). defaults to False.
+
+    'alphabetize' - whether to make the json output alphabetized (or leave it as the inputted order). defaults to False.
 
     'help' - shows this message.
 
@@ -42,6 +45,7 @@ class AutocorrectorApi(Resource):
         dictionary = request_url_to_list(args['dictionary']) if args['dictionary'] else "test_files/20k_shun4midx.txt"
         separator = args['separator'] if args['separator'] else " "
         prettify = args['prettify'] if args['prettify'] else "False"
+        alphabetize = args['alphabetize'] if args['alphabetize'] else "False"
         help_needed = args['help']
 
         if help_needed == "":
@@ -59,7 +63,10 @@ class AutocorrectorApi(Resource):
         else:
             current_app.json.compact = True
 
-        print(query)
+        if alphabetize.lower() == "true":
+            current_app.json.sort_keys = True
+        else:
+            current_app.json.sort_keys = False
 
         ac_results = autocorrector(query, number, dictionary)
         return jsonify(ac_results)
