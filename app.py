@@ -76,7 +76,7 @@ def main_route():
 
             if output_as_file == "on":
 
-                output_file_name = f"fqhll_output_{int(time.time())}.txt"
+                output_file_name = f"fqhll_output_{int(time.time())}"
                 content = autocorrector(query, number, dictionary)
                 response = jsonify(content)
                 response.headers["Content-Disposition"] = f"attachment; filename={output_file_name}"
