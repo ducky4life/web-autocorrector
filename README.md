@@ -10,7 +10,7 @@ uses the extremely cool, [accurate, and low-memory-usage](https://github.com/shu
 
 https://github.com/shun4midx/FQ-HyperLogLog-Autocorrect
 
-## api usage
+# api usage
 
 api endpoint: `https://web-autocorrector.vercel.app/api`
 
@@ -20,7 +20,7 @@ only query is a required argument. the rest is optional and can be excluded. arg
 
 note that custom dictionaries would be treated as if it's from most to least frequently used.
 
-### arguments
+## arguments
 
 `query` (required) - input text or raw txt file link to be processed
 
@@ -32,7 +32,7 @@ note that custom dictionaries would be treated as if it's from most to least fre
 
 `prettify` - whether to prettify the json output into human readable form or leave it as one line. defaults to False.
 
-### api examples
+## api examples
 
 you can use this command to show a help message:
 
@@ -42,7 +42,7 @@ curl -d 'help' https://web-autocorrector.vercel.app/api
 
 or just `curl https://web-autocorrector.vercel.app/api`
 
-#### example query with all arguments:
+### example query with all arguments:
 
 ```sh
 curl -d 'query=wwo,htis,alogirthm,so,coolo' -d 'number=3' -d 'dictionary=https://raw.githubusercontent.com/shun4midx/FQ-HyperLogLog-Autocorrect/refs/heads/main/fq_hll_py/src/fq_hll/test_files/20k_shun4midx.txt' -d 'separator=,' -d 'prettify=False' https://web-autocorrector.vercel.app/api
@@ -54,7 +54,7 @@ returns:
 
 `query` also supports text file links like with the dictionary in the example
 
-#### example query with file input:
+### example query with file input:
 
 ```sh
 curl -d 'query=https://raw.githubusercontent.com/ducky4life/web-autocorrector/refs/heads/main/requirements.txt' -d 'separator=\n' https://web-autocorrector.vercel.app/api
@@ -95,7 +95,9 @@ curl -d 'query=thsi is omazing&prettify=True'  https://web-autocorrector.vercel.
 - export to file as json object/python dictionary
 - import input file from uploads or web url or input textbox
 
-## Usage (Python)
+## Usage
+
+### Python
 
 make sure you have [python](https://www.python.org/downloads/) installed.
 
@@ -117,7 +119,7 @@ make sure you have [python](https://www.python.org/downloads/) installed.
    ```
 5. go to http://localhost:8080/
 
-## Usage (Docker)
+### Docker
 
 make sure you have [docker](https://www.docker.com) installed.
 
@@ -125,7 +127,7 @@ make sure you have [docker](https://www.docker.com) installed.
 
 amd64 packages are not tested since i only have an arm64 rasp pi with docker.
 
-### Using pre-built images
+#### Using pre-built images
 
 1. get the correct package for your archetecture
 
@@ -149,7 +151,7 @@ amd64 packages are not tested since i only have an arm64 rasp pi with docker.
    ```
 3. go to http://localhost:8080/
 
-### Building the images from source (recommended)
+#### Building the images from source (recommended)
 
 1. clone the repository
    ```
