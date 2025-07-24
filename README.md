@@ -37,7 +37,7 @@ note that custom dictionaries would be treated as if it's from most to least fre
 #### example query with all arguments:
 
 ```sh
-curl -d 'query=wwo/htis/alogirthm/so/coolo' -d 'number=3' -d 'dictionary=https://raw.githubusercontent.com/shun4midx/FQ-HyperLogLog-Autocorrect/refs/heads/main/fq_hll_py/src/fq_hll/test_files/20k_shun4midx.txt' -d 'separator=/' -d 'prettify=False' https://web-autocorrector.vercel.app/api
+curl -d 'query=wwo,htis,alogirthm,so,coolo' -d 'number=3' -d 'dictionary=https://raw.githubusercontent.com/shun4midx/FQ-HyperLogLog-Autocorrect/refs/heads/main/fq_hll_py/src/fq_hll/test_files/20k_shun4midx.txt' -d 'separator=,' -d 'prettify=False' https://web-autocorrector.vercel.app/api
 ```
 
 returns:

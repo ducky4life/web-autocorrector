@@ -28,6 +28,7 @@ class AutocorrectorApi(Resource):
         if args['query'].startswith("http"):
             query = request_url_to_list(args['query'])
         elif args['query']:
+            print(separator)
             query = query.split(separator)
 
         if prettify.lower() == "true":
