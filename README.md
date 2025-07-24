@@ -26,7 +26,7 @@ note that custom dictionaries would be treated as if it's from most to least fre
 
 `number` - the number of possible autocorrected words to output for each word. defaults to 1.
 
-`dictionary` - a raw txt file link with one word on each line to be used as the custom dictionary for the algorithm
+`dictionary` - a raw txt file link with one word on each line to be used as the custom dictionary for the algorithm. default dictionary is [20k_shun4midx.txt](https://github.com/shun4midx/FQ-HyperLogLog-Autocorrect/blob/main/fq_hll_py/src/fq_hll/test_files/20k_shun4midx.txt)
 
 `separator` - a string that separates each word in the input. defaults to spaces. you should use `separator=\n` for most txt files.
 
