@@ -97,7 +97,11 @@ curl -d 'query=htis is omazing&prettify=True' https://web-autocorrector.vercel.a
 - export to file as json object/python dictionary
 - import input file from uploads or web url or input textbox
 
-## Usage
+## local usage
+
+deploying to vercel is always the fastest, but there are local options
+
+[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/ducky4life/web-autocorrector)
 
 ### Python
 
@@ -188,7 +192,6 @@ amd64 packages are not tested since i only have an arm64 rasp pi with docker.
 - [x] queryable api
 - [x] separate by both spaces and newlines instead of commas
 - [x] make prettify_autocorrector renders in br tags/new lines
-- [ ] toggle button for raw output in web
 - [x] make json output prettier
 - [x] add toggle pretty json output to api
-- [ ] export to file option for api
+- [x] export to file option for api
