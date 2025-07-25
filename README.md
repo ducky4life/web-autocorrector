@@ -47,7 +47,7 @@ or just `curl https://web-autocorrector.vercel.app/api`
 ### example query with all arguments:
 
 ```sh
-curl -d 'query=wwo,htis,alogirthm,so,coolo' -d 'number=3' -d -d 'separator=,' -d 'prettify=False' -d 'alphabetize=False' 'dictionary=https://raw.githubusercontent.com/shun4midx/FQ-HyperLogLog-Autocorrect/refs/heads/main/fq_hll_py/src/fq_hll/test_files/20k_shun4midx.txt' https://web-autocorrector.vercel.app/api
+curl -d 'query=wwo,htis,alogirthm,so,coolo' -d 'number=3' -d 'separator=,' -d 'prettify=False' -d 'alphabetize=False' 'dictionary=https://raw.githubusercontent.com/shun4midx/FQ-HyperLogLog-Autocorrect/refs/heads/main/fq_hll_py/src/fq_hll/test_files/20k_shun4midx.txt' https://web-autocorrector.vercel.app/api
 ```
 
 returns:
