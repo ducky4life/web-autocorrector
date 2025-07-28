@@ -199,3 +199,4 @@ amd64 packages are not tested since i only have an arm64 rasp pi with docker.
 - [ ] layout to api too
 - [ ] toggle keyboard layout usage
 - [ ] toggle keyboard layout api
+- [ ] make html layout more compact
