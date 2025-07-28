@@ -195,3 +195,7 @@ amd64 packages are not tested since i only have an arm64 rasp pi with docker.
 - [x] make json output prettier
 - [x] add toggle pretty json output to api
 - [x] export to file option for api
+- [ ] add custom keyboard layout
+- [ ] layout to api too
+- [ ] toggle keyboard layout usage
+- [ ] toggle keyboard layout api
