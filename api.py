@@ -12,6 +12,7 @@ parser.add_argument('dictionary', type=str, location='form')
 parser.add_argument('separator', type=str, location='form')
 parser.add_argument('prettify', type=str, location='form')
 parser.add_argument('alphabetize', type=str, location='form')
+parser.add_argument('layout', type=str, location='form')
 parser.add_argument('help', type=str, location='form')
 
 help_message = """Usage: curl -d '[options]=[value]' https://web-autocorrector.vercel.app/api
@@ -27,6 +28,8 @@ Options:
     'prettify' - whether to prettify the json output into human readable form (or leave it as one line). defaults to False.
 
     'alphabetize' - whether to make the json output alphabetized (or leave it as the inputted order). defaults to False.
+
+    'layout' - the keyboard layout to be used. included layouts are 'qwerty', 'azerty', 'qwertz', 'dvorak', 'colemak'. set this to 'disable' to not have the api consider layouts. defaults to qwerty.
 
     'help' - shows this message.
 
@@ -46,6 +49,7 @@ class AutocorrectorApi(Resource):
         separator = args['separator'] if args['separator'] else " "
         prettify = args['prettify'] if args['prettify'] else "False"
         alphabetize = args['alphabetize'] if args['alphabetize'] else "False"
+        layout = args['layout'] if args['layout'] else "qwerty"
         help_needed = args['help']
 
         if help_needed == "":
@@ -68,7 +72,10 @@ class AutocorrectorApi(Resource):
         else:
             current_app.json.sort_keys = False
 
-        ac_results = autocorrector(query, number, dictionary)
+        if layout.lower() == "disable":
+            layout = []
+
+        ac_results = autocorrector(query, number, dictionary, alphabetize, layout)
         return jsonify(ac_results)
     
     def get(self):

@@ -34,6 +34,8 @@ note that custom dictionaries would be treated as if it's from most to least fre
 
 `alphabetize` - whether to make the json output alphabetized (or leave it as the inputted order). defaults to False.
 
+`layout` - the keyboard layout to be used. included layouts are 'qwerty', 'azerty', 'qwertz', 'dvorak', 'colemak'. set this to 'disable' to not have the api consider layouts. defaults to qwerty.
+
 ## api examples
 
 you can use this command to show a help message:
@@ -65,6 +67,24 @@ curl -d 'separator=\n' -d 'alphabetize=True' -d 'query=https://raw.githubusercon
 returns:
 
 > {"DyslexicLogLog":["toxicology"],"flask":["alaska"],"flask-restful":["breakfasts"],"requests":["requests"],"waitress":["treaties"]}
+
+### example difference of keyboard layouts
+
+```sh
+curl -d 'layout=qwerty' -d 'query=klofr' -d 'number=3' https://web-autocorrector.vercel.app/api
+```
+
+returns:
+
+> {"klofr":["folks","zoloft","folk"]}
+
+```sh
+curl -d 'layout=disable' -d 'query=klofr' -d 'number=3' https://web-autocorrector.vercel.app/api
+```
+
+returns:
+
+> {"klofr":["folks","color","floor"]}
 
 ### exporting to file
 
@@ -195,8 +215,10 @@ amd64 packages are not tested since i only have an arm64 rasp pi with docker.
 - [x] make json output prettier
 - [x] add toggle pretty json output to api
 - [x] export to file option for api
+- [x] presets keyboard layout
+- [x] presets api layout
 - [ ] add custom keyboard layout
-- [ ] layout to api too
+- [ ] custom layout to api too
 - [x] toggle keyboard layout usage
-- [ ] toggle keyboard layout api
+- [x] toggle keyboard layout api
 - [x] make html layout more compact
