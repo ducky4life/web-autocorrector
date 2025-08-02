@@ -39,8 +39,9 @@ def main_route():
         separator_input = request.form.get('separator')
         separator = separator_input if separator_input else "\n"
 
-
-
+        keyboard_layout = request.form.get('keyboard_layout')
+        disable_keyboard = request.form.get('disable_keyboard_toggle')
+        
         if input_file:
             input_list = input_file.readlines()
             query = [item.decode('utf-8').replace("\n", "").replace("\r", "") for item in input_list]
@@ -69,6 +70,9 @@ def main_route():
             dictionary = "test_files/20k_shun4midx.txt"
 
 
+        if disable_keyboard == "on":
+            keyboard_layout = []
+
 
         if query != ['']:
 
@@ -77,15 +81,14 @@ def main_route():
             if output_as_file == "on":
 
                 output_file_name = f"fqhll_output_{int(time.time())}"
-                content = autocorrector(query, number, dictionary)
+                content = autocorrector(query, number, dictionary, alphabetize_output, keyboard_layout)
                 response = jsonify(content)
                 response.headers["Content-Disposition"] = f"attachment; filename={output_file_name}"
                 return response
 
             else:
                 try:
-                    message = prettify_autocorrector(query, number, dictionary, alphabetize_output)
-
+                    message = prettify_autocorrector(query, number, dictionary, alphabetize_output, keyboard_layout)
                 except Exception as e:
                     error = f"Error: {e}"
 

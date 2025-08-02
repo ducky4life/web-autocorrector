@@ -240,6 +240,22 @@ input:checked + .slider:before {
   padding: 50px;
   padding-top: 10px;
 }
+
+.toggles {
+  display: flex;
+  align-items: center;
+  place-content: center;
+}
+
+.toggles p {
+  margin: 0;
+  text-align: left;
+  flex: 1;
+}
+
+.toggles label {
+  margin-left: auto;
+}
 /* #endregion */
 
 /* #region button */

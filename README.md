@@ -197,6 +197,6 @@ amd64 packages are not tested since i only have an arm64 rasp pi with docker.
 - [x] export to file option for api
 - [ ] add custom keyboard layout
 - [ ] layout to api too
-- [ ] toggle keyboard layout usage
+- [x] toggle keyboard layout usage
 - [ ] toggle keyboard layout api
-- [ ] make html layout more compact
+- [x] make html layout more compact
