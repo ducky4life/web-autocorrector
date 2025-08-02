@@ -75,7 +75,7 @@ class AutocorrectorApi(Resource):
         if layout.lower() == "disable":
             layout = []
 
-        ac_results = autocorrector(query, number, dictionary, alphabetize, layout)
+        ac_results = autocorrector(query=query, number=number, dictionary=dictionary, keyboard_layout=layout)
         return jsonify(ac_results)
     
     def get(self):
