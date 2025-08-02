@@ -8,7 +8,7 @@ from autocorrector import autocorrector, prettify_autocorrector
 from api import AutocorrectorApi
 
 app = Flask('')
-port = 8083
+port = 8080
 api_app = Api(app)
 app.json.compact = False
 
