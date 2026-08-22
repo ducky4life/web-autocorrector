@@ -1,8 +1,13 @@
-from dyslexicloglog import Autocorrector
+from dyslexicloglog import Autocorrector as fqhllAutocorrector
+from dyslexicplusplus import Autocorrector as hllppAutocorrector
 
-def autocorrector(query:list, number:int=1, dictionary="test_files/20k_shun4midx.txt", alphabetize=None, keyboard_layout="qwerty"):
+def autocorrector(query:list, number:int=1, dictionary="test_files/20k_shun4midx.txt", alphabetize=None, keyboard_layout="qwerty", use_hllpp=True):
     print(keyboard_layout)
-    ac = Autocorrector(dictionary_list=dictionary, keyboard=keyboard_layout)
+
+    if use_hllpp:
+        ac = hllppAutocorrector(dictionary_list=dictionary, keyboard=keyboard_layout)
+    else:
+        ac = fqhllAutocorrector(dictionary_list=dictionary, keyboard=keyboard_layout)
 
     input_list = query
     if number not in [1,2,3]:
@@ -24,8 +29,8 @@ def autocorrector(query:list, number:int=1, dictionary="test_files/20k_shun4midx
     return ac_dict
 
 
-def prettify_autocorrector(query:str, number:int=1, dictionary="test_files/20k_shun4midx.txt", alphabetize=None, keyboard_layout="qwerty"):
-    ac_dict = autocorrector(query, number, dictionary, alphabetize, keyboard_layout)
+def prettify_autocorrector(query:str, number:int=1, dictionary="test_files/20k_shun4midx.txt", alphabetize=None, keyboard_layout="qwerty", use_hllpp=True):
+    ac_dict = autocorrector(query, number, dictionary, alphabetize, keyboard_layout, use_hllpp)
 
     msg = []
 

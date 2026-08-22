@@ -73,6 +73,7 @@ def main_route():
         if disable_keyboard == "on":
             keyboard_layout = []
 
+        use_hllpp = True
 
         if query != ['']:
 
@@ -81,14 +82,14 @@ def main_route():
             if output_as_file == "on":
 
                 output_file_name = f"fqhll_output_{int(time.time())}"
-                content = autocorrector(query, number, dictionary, alphabetize_output, keyboard_layout)
+                content = autocorrector(query, number, dictionary, alphabetize_output, keyboard_layout, use_hllpp)
                 response = jsonify(content)
                 response.headers["Content-Disposition"] = f"attachment; filename={output_file_name}"
                 return response
 
             else:
                 try:
-                    message = prettify_autocorrector(query, number, dictionary, alphabetize_output, keyboard_layout)
+                    message = prettify_autocorrector(query, number, dictionary, alphabetize_output, keyboard_layout, use_hllpp)
                 except Exception as e:
                     error = f"Error: {e}"
 
